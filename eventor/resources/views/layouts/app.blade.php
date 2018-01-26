@@ -37,6 +37,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         @if (Auth::check())
+                            <li><a href="{{ url('sporttypes') }}"><i class="fa fa-list"></i> <span>Sportstypes</span></a></li>
                             <li><a href="{{ url('organizations') }}"><i class="fa fa-list"></i> <span>Organizations</span></a></li>
                         @endif
                         &nbsp;

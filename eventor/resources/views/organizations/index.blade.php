@@ -32,11 +32,11 @@
                                        <input name="_method" type="hidden" value="DELETE">
                                        <button class="btn btn-danger" type="submit">Delete</button>
                                    </form>
-
                                </td>
                            </tr>
                         @endforeach
                         </table>
+                        <div class="col-md-4 col-md-offset-4">{{ $organizations->links() }}</div>
                     </div>
                 </div>
             </div>

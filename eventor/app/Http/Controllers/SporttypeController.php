@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\OrganizationsRequest;
-use App\Organizator;
+use App\Http\Requests\SporttypeRequest;
+use App\Sporttype;
 
-
-class OrganizationsController extends Controller
+class SporttypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class OrganizationsController extends Controller
      */
     public function index()
     {
-
-        $organizations = Organizator::paginate(5);
-        return view('organizations.index')->with('organizations',$organizations);
+        $sportstype = Sporttype::paginate(5);
+        return view('sporttypes.index')->with('sportstype',$sportstype);
     }
 
     /**
@@ -27,7 +25,7 @@ class OrganizationsController extends Controller
      */
     public function create()
     {
-       return view('organizations.create');
+        return view('sporttypes.create');
     }
 
     /**
@@ -36,15 +34,14 @@ class OrganizationsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(OrganizationsRequest $request)
+    public function store(SporttypeRequest $request)
     {
-        $organizator = new Organizator([
+        $sportstype = new Sporttype([
             'name' => $request->get('name'),
-            'mission' => $request->get('mission'),
-            'founder' => $request->get('founder')
+            'description' => $request->get('description')
         ]);
-        $organizator->save();
-        return redirect('organizations')->with('message','Saved item !');
+        $sportstype->save();
+        return redirect('sporttypes')->with('message','Saved item !');
     }
 
     /**
@@ -66,8 +63,8 @@ class OrganizationsController extends Controller
      */
     public function edit($id)
     {
-        $organizator = Organizator::find($id);
-        return view('organizations.edit', compact('organizator','id'));
+        $sportstype = Sporttype::find($id);
+        return view('sporttypes.edit', compact('sportstype','id'));
     }
 
     /**
@@ -77,14 +74,13 @@ class OrganizationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(OrganizationsRequest $request, $id)
+    public function update(SporttypeRequest $request, $id)
     {
-        $organizator = Organizator::find($id);
-        $organizator->name = $request->get('name');
-        $organizator->mission = $request->get('mission');
-        $organizator->founder = $request->get('founder');
-        $organizator->save();
-        return redirect('organizations')->with('message', 'Successfully updated !');
+        $sportstype = Sporttype::find($id);
+        $sportstype->name = $request->get('name');
+        $sportstype->description = $request->get('description');
+        $sportstype->save();
+        return redirect('sporttypes')->with('message', 'Successfully updated !');
     }
 
     /**
@@ -95,8 +91,8 @@ class OrganizationsController extends Controller
      */
     public function destroy($id)
     {
-        $organizator = Organizator::find($id);
-        $organizator->delete();
-        return redirect('organizations')->with('message','Deleted!');
+        $sportstype = Sporttype::find($id);
+        $sportstype->delete();
+        return redirect('sporttypes')->with('message','Deleted!');
     }
 }
