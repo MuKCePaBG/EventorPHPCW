@@ -12,10 +12,24 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        body{
+            background: url({{url('/images/sport.jpg')}});
+            background-repeat: no-repeat;
+        }
+        ul li a{
+
+            border-radius: 0px 10px 0px 10px;
+            font-size: 16px;
+            font-family: sans-serif;
+            font-style:italic;
+            color: #ff862f;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+
             <div class="container">
                 <div class="navbar-header">
 
@@ -27,20 +41,20 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
+                    <!-- Branding Image
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
-                    </a>
+                    </a>-->
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         @if (Auth::check())
+                            <li><a href="{{ url('events') }}"><i class="fa fa-list"></i> <span>Events</span></a></li>
                             <li><a href="{{ url('sporttypes') }}"><i class="fa fa-list"></i> <span>Sportstypes</span></a></li>
                             <li><a href="{{ url('organizations') }}"><i class="fa fa-list"></i> <span>Organizations</span></a></li>
                         @endif
-                        &nbsp;
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -73,7 +87,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+
 
         @yield('content')
     </div>

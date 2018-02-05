@@ -13,12 +13,13 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                color: #3024ff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
+                background: url({{url('/images/sport.jpg')}});
+                background-repeat: no-repeat;
             }
 
             .full-height {
@@ -50,7 +51,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #ff862f;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -62,6 +63,7 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
         </style>
     </head>
     <body>
@@ -79,16 +81,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
+                    Welcome to Eventor
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+                <h2 style="font-family: Calibri;font-style: italic">Simple system for sport events ...</h2>
             </div>
         </div>
     </body>
