@@ -17,4 +17,8 @@ class Event extends Model
     {
         return $this->belongsTo('App\Organizator','organizator_id','id');
     }
+
+    public function scopeSearch($query,$s){
+        return $query->where('date','like','%'.$s.'%')->orWhere('organizator_id','like','%'.$s.'%')->orWhere('sportstype_id','like','%'.$s.'%');
+    }
 }

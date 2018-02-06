@@ -15,7 +15,6 @@ class OrganizationsController extends Controller
      */
     public function index()
     {
-
         $organizations = Organizator::paginate(5);
         return view('organizations.index')->with('organizations',$organizations);
     }

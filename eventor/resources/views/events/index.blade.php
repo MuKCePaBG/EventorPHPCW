@@ -39,7 +39,17 @@
                                 </tr>
                             @endforeach
                         </table>
-                        <div class="col-md-4 col-md-offset-4">{{ $events->links() }}</div>
+                        <div class="col-md-12 text-right">
+                            <form action="{{route('events.index')}}" method="get" class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="s" placeholder="Search event" value="{{isset($s) ? $s : ''}}">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">{{ $events->appends(['s'=>$s])->links() }}</div>
                     </div>
                 </div>
             </div>

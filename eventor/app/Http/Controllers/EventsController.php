@@ -15,10 +15,11 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $events = Event::with('sportstypes','organizators')->paginate(5);
-        return view('events.index',compact('events'));
+        $s = $request->input('s');
+        $events = Event::with('sportstypes','organizators')->search($s)->paginate(5);
+        return view('events.index',compact('events','s'));
     }
 
     /**
