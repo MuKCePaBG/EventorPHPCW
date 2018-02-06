@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('Eventor', 'Eventor') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -24,6 +24,10 @@
             font-family: sans-serif;
             font-style:italic;
             color: #ff862f;
+        }
+        table th,td{
+            font-family: Verdana;
+            color: #060202;
         }
     </style>
 </head>

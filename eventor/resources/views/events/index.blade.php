@@ -8,24 +8,29 @@
                     <div class="alert alert-success">{{ Session::get('message') }}</div>
                 @endif
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background: #524c20"><span style="color:#f0ad4e">Sportstypes</span>
-                        <a href="{{ URL::to('sporttypes/create') }}" class="pull-right btn-sm btn-success">Add a Sporttype</a>
+                    <div class="panel-heading" style="background: #524c20"><span style="color:#f0ad4e">Events</span>
+                        <a href="{{ URL::to('events/create') }}" class="pull-right btn-sm btn-success">Add a Event</a>
                     </div>
 
                     <div class="panel-body" style="background: #7cd16e">
                         <table class="table">
                             <tr>
                                 <th>Name</th>
-                                <th>Description</th>
-                                <th>Action</th>
+                                <th>Date</th>
+                                <th>Duration</th>
+                                <th>Sportstype</th>
+                                <th>Organizator</th>
                             </tr>
-                            @foreach($sportstype as $sporttype)
+                            @foreach($events as $event)
                                 <tr>
-                                    <td>{{$sporttype->name}}</td>
-                                    <td>{{$sporttype->description}}</td>
+                                    <td>{{$event->name}}</td>
+                                    <td>{{$event->date}}</td>
+                                    <td>{{$event->duration}}</td>
+                                    <td>{{$event->sportstypes->name}}</td>
+                                    <td>{{$event->organizators->name}}</td>
                                     <td>
-                                        <a class="btn btn-primary" href="{{ URL::to('sporttypes/' . $sporttype->id . '/edit') }}">Edit</a>
-                                        <form action="{{action('SporttypeController@destroy', $sporttype->id )}}" method="post">
+                                        <a class="btn btn-primary" href="{{ URL::to('sporttypes/' . $event->id . '/edit') }}">Edit</a>
+                                        <form action="{{action('EventsController@destroy', $event->id )}}" method="post">
                                             {{csrf_field()}}
                                             <input name="_method" type="hidden" value="DELETE">
                                             <button class="btn btn-danger" type="submit">Delete</button>
@@ -34,7 +39,7 @@
                                 </tr>
                             @endforeach
                         </table>
-                        <div class="col-md-4 col-md-offset-4">{{ $sportstype->links() }}</div>
+                        <div class="col-md-4 col-md-offset-4">{{ $events->links() }}</div>
                     </div>
                 </div>
             </div>

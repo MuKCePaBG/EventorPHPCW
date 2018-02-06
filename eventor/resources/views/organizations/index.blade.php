@@ -8,11 +8,11 @@
                     <div class="alert alert-success">{{ Session::get('message') }}</div>
                 @endif
                 <div class="panel panel-default">
-                    <div class="panel-heading">Organizations
+                    <div class="panel-heading" style="background: #524c20"><span style="color:#f0ad4e">Organizations</span>
                         <a href="{{ URL::to('organizations/create') }}" class="pull-right btn-sm btn-success" >Add a Organization</a>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="panel-body" style="background: #7cd16e">
                         <table class="table">
                             <tr>
                                 <th>Name</th>

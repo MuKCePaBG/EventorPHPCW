@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('organizations','OrganizationsController');
 Route::resource('sporttypes','SporttypeController');
+Route::resource('events','EventsController');
