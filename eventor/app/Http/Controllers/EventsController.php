@@ -76,7 +76,13 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+        $organizators = Organizator::all()->pluck('name','id');
+        $organizators = array('0' => 'Select Organizator') + $organizators->all();
+
+        $sportstypes = Sporttype::all()->pluck('name','id');
+        $sportstypes = array('0' => 'Select Sportstype') + $sportstypes->all();
+        return view('events.edit', compact('event','id','organizators','sportstypes'));
     }
 
     /**
@@ -86,9 +92,16 @@ class EventsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EventRequest $request, $id)
     {
-        //
+        $event = Event::find($id);
+        $event->name = $request->get('name');
+        $event->date = $request->get('date');
+        $event->duration = $request->get('duration');
+        $event->organizator_id = $request->get('organizator_id');
+        $event->sportstype_id = $request->get('sportstype_id');
+        $event->save();
+        return redirect('events')->with('message', 'Successfully updated !');
     }
 
     /**

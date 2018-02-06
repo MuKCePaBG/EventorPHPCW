@@ -29,7 +29,7 @@
                                     <td>{{$event->sportstypes->name}}</td>
                                     <td>{{$event->organizators->name}}</td>
                                     <td>
-                                        <a class="btn btn-primary" href="{{ URL::to('sporttypes/' . $event->id . '/edit') }}">Edit</a>
+                                        <a class="btn btn-primary" href="{{ URL::to('events/' . $event->id . '/edit') }}">Edit</a>
                                         <form action="{{action('EventsController@destroy', $event->id )}}" method="post">
                                             {{csrf_field()}}
                                             <input name="_method" type="hidden" value="DELETE">

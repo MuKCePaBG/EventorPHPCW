@@ -5,10 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Welcome to Eventor</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+        <!-- JS -->
+        <script src="{{ asset('js/app.js') }}"></script>
 
         <!-- Styles -->
         <style>
@@ -65,6 +68,11 @@
             }
 
         </style>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#fadein").hide(0).delay(500).fadeIn(3000)
+            });
+        </script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -80,11 +88,10 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div  class="title m-b-md">
                     Welcome to Eventor
-
                 </div>
-                <h2 style="font-family: Calibri;font-style: italic">Simple system for sport events ...</h2>
+                <h2 id="fadein">Simple system for sport events ...</h2>
             </div>
         </div>
     </body>
